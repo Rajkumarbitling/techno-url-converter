@@ -1,0 +1,16 @@
+.col {
+    flex-grow: 1;
+}
+
+.p-2 {
+    padding: 1rem;
+}
+
+textarea {
+    border-radius: 0.25rem;
+}
+
+.selectDiv {
+    display: flex;
+    justify-content: space-around;
+}
