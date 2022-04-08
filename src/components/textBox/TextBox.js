@@ -4,7 +4,7 @@ import './textBox.css';
 const TextBox = () => {
     let [inputText, setinputText] = useState("");
     let [outputText, setoutputText] = useState("");
-    let [selected, setselected] = useState("");
+    let [selected, setselected] = useState("c:\\Users\\TechnoPurple\\workspace\\PTUI\\trunk\\WebContent\\");
     let [copied, setcopied] = useState(false);
 
     const handleChange = (e) => {
@@ -12,7 +12,6 @@ const TextBox = () => {
     }
 
     const handleSelect = (e) => {
-        console.log(e.target.value)
         setselected(e.target.value)
     }
 
@@ -24,7 +23,7 @@ const TextBox = () => {
     useEffect(() => {
         if (inputText.length > 0) {
             var sample = inputText.toString();
-            if (sample.includes(selected) && selected.length != 0) {
+            if (sample.includes(selected) && selected.length !== 0) {
                 var replaceStr = "svn up /usr/share/tomcat7/webapps/effy/"
                 var inputStr = selected;
                 // var inputStr = "c:\\Users\\TechnoPurple\\workspace\\PTUI\\trunk\\WebContent\\"
@@ -34,14 +33,13 @@ const TextBox = () => {
         } else {
             setoutputText("");
         }
-    }, [inputText])
+    }, [inputText, selected])
 
 
     return (
         <>
             <div className="selectDiv">
                 <select value={selected} name="selectOption" id="selectOption" onChange={handleSelect}>
-                    <option value="" >Select Editor</option>
                     <option value="c:\Users\TechnoPurple\workspace\PTUI\trunk\WebContent\">VsCode</option>
                     <option value="/PTUI/trunk/WebContent/">Eclipse</option>
                 </select>
